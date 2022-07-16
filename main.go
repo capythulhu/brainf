@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 )
 
 var memory = []byte{0}
@@ -56,9 +57,17 @@ func runOp(i int, c byte) int {
 
 func main() {
 	p, err := os.ReadFile(os.Args[1])
+
+	exten := filepath.Ext(os.Args[1])
+
+	if exten != ".bf" {
+		panic("Format not accept! " + exten)
+	}
+
 	if err != nil {
 		panic(err)
 	}
+
 	program = p
 
 	for i := 0; i < len(program); i++ {
