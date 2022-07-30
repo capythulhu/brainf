@@ -1,3 +1,3 @@
-module github.com/thzoid/brainfuck
+module github.com/thzoid/brainf
 
 go 1.18
