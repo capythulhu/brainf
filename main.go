@@ -58,14 +58,14 @@ func runOp(i int, c byte) int {
 func main() {
 	p, err := os.ReadFile(os.Args[1])
 
-	exten := filepath.Ext(os.Args[1])
-
-	if exten != ".bf" {
-		panic("Format not accept! " + exten)
-	}
+	ext := filepath.Ext(os.Args[1])
 
 	if err != nil {
 		panic(err)
+	}
+
+	if ext != ".bf" {
+		panic("provided script must be a .bf file")
 	}
 
 	program = p
